@@ -1,0 +1,169 @@
+
+html, body { margin: 0; box-sizing: border-box; min-height: 100vh; }
+body, input { font-family: 'Helvetica Neue', Tahoma, sans-serif; font-size: 16px; }
+input[type=number] { text-align: right; margin-right: 2px; }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+body {
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+}
+div.spacer {
+    flex-grow: 1; position: relative; width: 100%;
+}
+body::after {
+    content: '';
+    display: block;
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    margin-top: -25px;
+    margin-left: -25px;
+    width: 50px;
+    height: 50px;
+    background: url(maskSpinner.svg) no-repeat center center / 50px 50px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+}
+body.loading::after { opacity: 1; }
+body.loading .controls, body.noContext .wantsContext { opacity: 0; pointer-events: none; }
+body .startContext { opacity: 0; pointer-events: none; }
+body.noContext .startContext { opacity: 1; }
+
+body.noSupport .noSupportMessage { display: initial; }
+body.noSupport .startContext { display: none; }
+
+.startContext {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.startContext button, .noSupportMessage span {
+	width: 256px;
+	height: 256px;
+	border-radius: 50%;
+	border: none;
+	background: skyblue;
+	color: white;
+	font-size: 64px;
+	box-shadow: 0px 3px 3px rgba(0,0,0,0.125);
+	text-shadow: 0px 3px 3px rgba(0,0,0,0.125);
+}
+
+.noSupportMessage {
+	display: none;
+}
+
+.noSupportMessage span {
+	height: auto;
+	padding: 32px;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 40px;
+    background: firebrick;
+	font-size: 32px;
+}
+
+.wantsContext, .controls {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.controls {
+    text-align: center; line-height: 200%; position: relative;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.25), #fff 25%);
+    box-shadow: 0 0 32px 14px rgba(255,255,255,0.25);
+}
+
+.controls > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+label { display: inline-block; min-width: 300px; }
+
+.fieldName { display: inline-block; width: 192px; margin-left: 8px; text-align: left; }
+
+input[type=range] {
+    width: calc(100vw - 332px);
+    max-width: 512px;
+}
+
+input.noRangeField {
+	width: calc(100vw - 232px);
+	max-width: 612px;
+}
+
+@media only screen and (max-width: 500px) {
+    input[type=range] {
+        width: calc(100vw - 32px);
+        min-width: 300px;
+    }
+}
+
+.playButton, .nextButton::before, .nextButton::after, .prevButton::before, .prevButton::after {
+	content: '';
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border-left: 16px solid black;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	border-radius: 3px;
+	vertical-align: middle;
+}
+
+.nextButton {
+	margin-left: 16px;
+}
+
+.prevButton {
+	margin-right: 16px;
+}
+
+.prevButton::before, .prevButton::after {
+	border-left: none;
+	border-right: 12px solid black;
+	border-top-width: 8px;
+	border-bottom-width: 8px;
+}
+
+.nextButton::before, .nextButton::after {
+	border-left-width: 12px;
+	border-top-width: 8px;
+	border-bottom-width: 8px;
+}
+
+.pauseButton {
+	display: inline-block;
+	width: 16px;
+	height: 24px;
+	position: relative;
+	vertical-align: middle;
+}
+
+.pauseButton::before, .pauseButton::after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	bottom: 3px;
+	width: 7px;
+	background: black;
+}
+
+.pauseButton::before { left: 0; }
+
+.pauseButton::after { right: 0; }
+
+li.buttonBar {
+	text-align: center;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Metronome</title>
+<link rel="icon" href="./favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="styles.css"/>
+<style></style>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="A metronome that you can control from your browser's media controls (in compatible browsers)"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Metronome"/>
+<meta name="og:description" content="A metronome that you can control from your browser's media controls (in compatible browsers)"/>
+<meta property="og:url" content="https://psiroki.github.io/metronome/"/>
+<meta property="og:image" content="https://psiroki.github.io/metronome/drums.jpg"/>
+<meta property="og:image:width" content="1350"/>
+<meta property="og:image:height" content="900"/>
+<meta property="og:image:type" content="image/jpeg"/>
+</head>
+<body class="loading noContext">
+<div class="spacer"></div>
+<div class="controls">
+    <div class="startContext">
+    <button type="button">Start</button>
+    </div>
+    <div class="noSupportMessage">
+    <span>No Web Audio API support</span>
+    </div>
+	<div class="wantsContext" style="display: none">Latency: <output id="outputLatency"/></div>
+    <ul class="wantsContext">
+        <li class="buttonBar"><span class="prevButton"
+        id="prevButton"></span><span class="pauseButton" id="playPauseButton"></span><span class="nextButton"
+        id="nextButton"></span></li>
+        <li><label><span class="fieldName">BPM: </span><input
+            id="bpmField" type="number" min="1" max="180" step="1" value="80"/></label>
+            <input id="bpmRange" type="range" min="1" max="180" step="1" value="80"/></li>
+        <li><label><span class="fieldName">BPM list: </span><input
+            id="bpmList" type="text" value="50, 80, 92, 120"
+            class="noRangeField"/></label>
+            </li>
+        <li><label><span class="fieldName">Beats per bar: </span><input
+            id="numeratorField" type="number" min="2" max="4" step="1" value="4"/></label>
+            <input id="numeratorRange" type="range" min="1" max="4" step="1"
+            value="8"/></li>
+        <li
+            data-cloneFor="emVolume,barVolume,obVolume"
+            data-replace="Master volume: /Accent volume: /Beat volume: /Offbeat volume: "
+            data-values="1,0.1375,0"
+        ><label><span class="fieldName">Master volume: </span><input
+            id="masterVolumeField" type="number" min="0" max="1" step="0.001" value="0.7"/></label>
+            <input id="masterVolumeRange" type="range" min="0" max="1" step="0.001" value="0.7"/></li>
+        <li><label><span class="fieldName">Tune: </span><input
+            id="tuneField" type="number" min="-96" max="96"
+	            step="1" value="0"/></label>
+            <input id="tuneRange" type="range" min="-96" max="96" step="1"
+            value="0"/></li>
+        <li><label><span class="fieldName">Pulse speed: </span><input
+            id="timeField" type="number" min="0" max="5"
+	            step="0.1" value="0"/></label>
+            <input id="timeRange" type="range" min="0" max="5" step="0.1"
+            value="0"/></li>
+        <li><label><span class="fieldName">Sound: </span><select
+        	id="sound"><option value="beat">Ping</option><option
+        	value="square">Beep</option></select></li>
+        </ul>
+</div>
+<div class="spacer"></div>
+<script type="application/javascript" defer="defer" src="beatgen.js"></script>
+<script type="application/javascript" defer="defer" src="metronome.js"></script>
+</body>
+</html>

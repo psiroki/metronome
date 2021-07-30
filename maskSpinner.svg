@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" width="26"
+    height="26">
+    <style>
+        circle {
+            stroke: #607f9f;
+        }
+
+        mask>circle {
+            stroke-width: 0;
+        }
+
+        :root>g {
+            transform: rotate(-90deg);
+            transform-origin: center;
+        }
+
+        g>circle {
+            fill: transparent;
+            stroke-dasharray: 50.2655px;
+            stroke-width: 50%;
+            transform-origin: center;
+            transition: stroke-dashoffset 225ms linear;
+            transition-property: stroke;
+            animation-duration: 4000ms;
+            animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+            animation-iteration-count: infinite;
+            animation-name: x;
+        }
+
+        g.r {
+            animation: 1000ms linear infinite y;
+            transform-origin: 50% 50%;
+        }
+
+        @keyframes y {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes x {
+            0% {
+                stroke-dashoffset: 47.752208334564855;
+                transform: rotate(0);
+            }
+
+            12.5% {
+                stroke-dashoffset: 10.053096491487338;
+                transform: rotate(0);
+            }
+
+            12.5001% {
+                stroke-dashoffset: 10.053096491487338;
+                transform: rotateX(180deg) rotate(72.5deg);
+            }
+
+            25% {
+                stroke-dashoffset: 47.752208334564855;
+                transform: rotateX(180deg) rotate(72.5deg);
+            }
+
+            25.0001% {
+                stroke-dashoffset: 47.752208334564855;
+                transform: rotate(270deg);
+            }
+
+            37.5% {
+                stroke-dashoffset: 10.053096491487338;
+                transform: rotate(270deg);
+            }
+
+            37.5001% {
+                stroke-dashoffset: 10.053096491487338;
+                transform: rotateX(180deg) rotate(161.5deg);
+            }
+
+            50% {
+                stroke-dashoffset: 47.752208334564855;
+                transform: rotateX(180deg) rotate(161.5deg);
+            }
+
+            50.0001% {
+                stroke-dashoffset: 47.752208334564855;
+                transform: rotate(180deg);
+            }
+
+            62.5% {
+                stroke-dashoffset: 10.053096491487338;
+                transform: rotate(180deg);
+            }
+
+            62.5001% {
+                stroke-dashoffset: 10.053096491487338;
+                transform: rotateX(180deg) rotate(251.5deg);
+            }
+
+            75% {
+                stroke-dashoffset: 47.752208334564855;
+                transform: rotateX(180deg) rotate(251.5deg);
+            }
+
+            75.0001% {
+                stroke-dashoffset: 47.752208334564855;
+                transform: rotate(90deg);
+            }
+
+            87.5% {
+                stroke-dashoffset: 10.053096491487338;
+                transform: rotate(90deg);
+            }
+
+            87.5001% {
+                stroke-dashoffset: 10.053096491487338;
+                transform: rotateX(180deg) rotate(341.5deg);
+            }
+
+            100% {
+                stroke-dashoffset: 47.752208334564855;
+                transform: rotateX(180deg) rotate(341.5deg);
+            }
+        }
+    </style>
+
+    <mask id="m">
+        <circle cx="8" cy="8" r="7.75" style="fill: white"/>
+        <circle cx="8" cy="8" r="4.5" style="fill: black"/>
+    </mask>
+    <g mask="url(#m)">
+        <g class="r">
+            <circle cx="8" cy="8" r="8"/>
+        </g>
+    </g>
+</svg>
